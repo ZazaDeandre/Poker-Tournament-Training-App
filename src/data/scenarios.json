@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "UTG vs BB - 10bb Deep",
+    "options": ["Fold", "Call", "Raise", "Jam"],
+    "gtoAnswer": "Raise",
+    "exploitAnswer": "Jam",
+    "villainType": "Loose Aggro"
+  },
+  {
+    "id": 2,
+    "title": "MP vs BB - 20bb Deep",
+    "options": ["Fold", "Call", "Raise", "Jam"],
+    "gtoAnswer": "Raise",
+    "exploitAnswer": "Call",
+    "villainType": "Tight Passive"
+  },
+  {
+    "id": 3,
+    "title": "CO vs BB - 30bb Deep",
+    "options": ["Fold", "Call", "Raise", "Jam"],
+    "gtoAnswer": "Raise",
+    "exploitAnswer": "Jam",
+    "villainType": "Balanced"
+  },
+  {
+    "id": 4,
+    "title": "BTN vs BB - 40bb Deep",
+    "options": ["Fold", "Call", "Raise", "Jam"],
+    "gtoAnswer": "Raise",
+    "exploitAnswer": "Call",
+    "villainType": "Maniac"
+  },
+  {
+    "id": 5,
+    "title": "SB vs BB - 50bb Deep",
+    "options": ["Fold", "Call", "Raise", "Jam"],
+    "gtoAnswer": "Raise",
+    "exploitAnswer": "Call",
+    "villainType": "Calling Station"
+  },
+  {
+    "id": 6,
+    "title": "UTG vs BB - 20bb Deep",
+    "options": ["Fold", "Call", "Raise", "Jam"],
+    "gtoAnswer": "Raise",
+    "exploitAnswer": "Jam",
+    "villainType": "Loose Aggro"
+  }
+
+  // ... add more scenarios to make 50+ as needed
+]
