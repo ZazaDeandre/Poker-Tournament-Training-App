@@ -38,15 +38,6 @@
     "gtoAnswer": "Raise",
     "exploitAnswer": "Call",
     "villainType": "Calling Station"
-  },
-  {
-    "id": 6,
-    "title": "UTG vs BB - 20bb Deep",
-    "options": ["Fold", "Call", "Raise", "Jam"],
-    "gtoAnswer": "Raise",
-    "exploitAnswer": "Jam",
-    "villainType": "Loose Aggro"
   }
-
-  // ... add more scenarios to make 50+ as needed
+  // Continue adding scenarios up to id: 50+
 ]
