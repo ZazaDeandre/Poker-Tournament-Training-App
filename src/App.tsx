@@ -1,128 +1,122 @@
-import React, { useState } from 'react';
-import scenarios from './data/scenarios.json';
-import './App.css';
-import CardRow from './components/CardRow';
-import RangeChart from './components/RangeChart';
+import React, { useState } from "react";
+import scenarios from "./data/scenarios.json";
+import "./App.css";
 
-interface Scenario {
-  id: number;
-  title: string;
-  options: string[];
-  gtoAnswer: string;
-  exploitAnswer: string;
-  villainType: string;
-  hole?: string[];      // optional visuals
-  board?: string[];     // optional visuals
-  rangeHint?: Record<string, number>; // optional visuals
-}
-
-const App: React.FC = () => {
+export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [attempts, setAttempts] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [score, setScore] = useState(0);
+  const [attempts, setAttempts] = useState(0);
 
-  const scenario = scenarios[currentIndex] as Scenario;
+  const scenario = scenarios[currentIndex];
+  const progress = ((currentIndex + 1) / scenarios.length) * 100;
 
-  const handleOptionClick = (option: string) => {
-    if (showAnswer) return;
-    setSelectedOption(option);
+  const handleSubmit = () => {
+    if (!selectedOption) return;
+    setAttempts((prev) => prev + 1);
+    if (selectedOption === scenario.gtoAnswer) {
+      setScore((prev) => prev + 1);
+    }
     setShowAnswer(true);
-    setAttempts((a) => a + 1);
-    if (option === scenario.gtoAnswer) setScore((s) => s + 1);
   };
 
   const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % scenarios.length);
     setSelectedOption(null);
     setShowAnswer(false);
-    if (currentIndex < scenarios.length - 1) setCurrentIndex((i) => i + 1);
-    else alert(`Session complete! You got ${score} / ${attempts} correct.`);
   };
 
-  const progress = ((currentIndex + 1) / scenarios.length) * 100;
+  const handleReset = () => {
+    setCurrentIndex(0);
+    setScore(0);
+    setAttempts(0);
+    setSelectedOption(null);
+    setShowAnswer(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-      return (
     <div className="app-wrap">
       {/* --- STICKY HEADER --- */}
       <div className="sticky-header">
         <div className="header-row">
           <h1 style={{ margin: 0 }}>Poker Tournament Training</h1>
-          <div className="score-tracker">
-            Score: {score} / {attempts} ({attempts > 0 ? Math.round((score / attempts) * 100) : 0}%)
-          </div>
-        </div>
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${progress}%` }} />
-        </div>
-      </div>
-
-      {/* keep this line so users still see which question they’re on */}
-      <p style={{ marginTop: 10 }}>Question {currentIndex + 1} / {scenarios.length}</p>
-
-      <div className="panel">
-        <h2 style={{ marginTop: 0 }}>{scenario.title}</h2>
-        <p><strong>Villain Type:</strong> {scenario.villainType}</p>
-
-        {/* --- NEW: side-by-side visuals --- */}
-        <div className="visuals-grid">
-          {/* LEFT: hole + board */}
-          <div className="visual-box">
-            <div className="visual-title">Hand & Board</div>
-            <div className="card-rows">
-              <CardRow label="Hole Cards" cards={scenario.hole} size="md" />
-              <CardRow label="Board Cards" cards={scenario.board} size="sm" />
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div className="score-tracker">
+              Score: {score} / {attempts} (
+              {attempts > 0 ? Math.round((score / attempts) * 100) : 0}%)
             </div>
-          </div>
-
-          {/* RIGHT: range heatmap (revealed after answer) */}
-          <div className="visual-box">
-            <div className="visual-title">Range Heatmap</div>
-            {showAnswer ? (
-              <RangeChart range={scenario.rangeHint} />
-            ) : (
-              <div className="card-placeholder">[Revealed after you answer]</div>
-            )}
+            <button
+              className="reset-btn"
+              onClick={handleReset}
+              title="Reset session"
+            >
+              Reset
+            </button>
           </div>
         </div>
 
-        {/* Options */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
-          {scenario.options.map((opt) => {
-            const cls =
-              showAnswer
-                ? opt === scenario.gtoAnswer
-                  ? 'option-btn correct'
-                  : opt === selectedOption
-                  ? 'option-btn incorrect'
-                  : 'option-btn'
-                : 'option-btn';
-
-            return (
-              <button
-                key={opt}
-                className={cls}
-                onClick={() => handleOptionClick(opt)}
-                disabled={showAnswer}
-              >
-                {opt}
-              </button>
-            );
-          })}
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{ width: `${progress}%` }}
+          ></div>
         </div>
-
-        {/* Answer & Next */}
-        {showAnswer && (
-          <div style={{ marginTop: 14 }}>
-            <p><strong>GTO Answer:</strong> {scenario.gtoAnswer}</p>
-            <p><strong>Exploit Answer:</strong> {scenario.exploitAnswer}</p>
-            <button onClick={handleNext} className="next-btn">Next</button>
-          </div>
-        )}
       </div>
+
+      {/* --- MAIN QUESTION AREA --- */}
+      <p style={{ marginTop: 10 }}>
+        Question {currentIndex + 1} / {scenarios.length}
+      </p>
+      <h2>{scenario.title}</h2>
+      <p>Villain Type: {scenario.villainType}</p>
+
+      <div className="options-list">
+        {scenario.options.map((option) => (
+          <button
+            key={option}
+            className={`option-btn ${
+              selectedOption === option ? "selected" : ""
+            }`}
+            onClick={() => setSelectedOption(option)}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+
+      <div className="action-buttons">
+        <button
+          className="primary-btn"
+          onClick={handleSubmit}
+          disabled={!selectedOption || showAnswer}
+        >
+          Submit
+        </button>
+        <button className="secondary-btn" onClick={handleNext}>
+          Next
+        </button>
+      </div>
+
+      {showAnswer && (
+        <div className="answer-card">
+          <p>
+            Your action: <strong>{selectedOption}</strong>
+          </p>
+          <p>
+            Correct GTO Action: <strong>{scenario.gtoAnswer}</strong>
+          </p>
+          <p>
+            Exploitative Action (vs {scenario.villainType}):{" "}
+            <strong>{scenario.exploitAnswer}</strong>
+          </p>
+          <p className="note">
+            * Exploitative actions depend on villain tendencies and may differ
+            from GTO.
+          </p>
+        </div>
+      )}
     </div>
   );
-};
-
-export default App;
+}
