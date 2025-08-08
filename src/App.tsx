@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import scenarios from "./data/scenarios.json";
+import scenarios from "./data/scenarios";
 import "./App.css";
 
 export default function App() {
