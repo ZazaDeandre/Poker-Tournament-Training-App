@@ -7,38 +7,38 @@ export type Scenario = {
   gtoAnswer: string;
   exploitAnswer: string;
   villainType: string;
-  hole?: string[];                 // e.g. ["As","Kd"]
-  board?: string[];                // e.g. ["Ts","7c","2d","Ah","2s"]
-  rangeHint?: Record<string, number>; // e.g. {"AKs":0.9,"AQs":0.6,"KQo":0.4}
+  hole?: string[];                     // e.g. ["As","Kd"]
+  board?: string[];                    // e.g. ["Ts","7c","2d","Ah","2s"]
+  rangeHint?: Record<string, number>;  // e.g. {"AKs":0.9,"AQs":0.6,"KQo":0.4}
 };
 
 const scenarios: Scenario[] = [
   // --------- PREFLOP (1–20) ----------
-  { id: 1, title: "Preflop — UTG vs Table, 10bb (ICM)", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam", exploitAnswer: "Fold", villainType: "Nit" },
-  { id: 2, title: "Preflop — UTG vs BB, 15bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam", villainType: "Loose Aggro", hole: ["Ad","Qs"] },
-  { id: 3, title: "Preflop — UTG vs BTN, 20bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Tight Passive" },
-  { id: 4, title: "Preflop — HJ vs BB, 20bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Calling Station" },
-  { id: 5, title: "Preflop — HJ vs BTN, 25bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam", villainType: "Maniac", hole: ["Kc","Qd"] },
-  { id: 6, title: "Preflop — LJ vs BTN, 25bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Nit" },
-  { id: 7, title: "Preflop — CO vs BB, 30bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Calling Station" },
-  { id: 8, title: "Preflop — CO vs BTN, 30bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Tight Passive" },
-  { id: 9, title: "Preflop — BTN vs Blinds, 12bb (Antes)", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam", exploitAnswer: "Raise", villainType: "Balanced", hole: ["Ah","5h"] },
-  { id: 10, title: "Preflop — BTN vs SB, 40bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Recreational" },
-  { id: 11, title: "Preflop — SB vs BB, 15bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam", exploitAnswer: "Raise", villainType: "Maniac", hole: ["As","Js"] },
-  { id: 12, title: "Preflop — SB vs BB, 25bb (Bubble)", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Nit" },
-  { id: 13, title: "Preflop — BB vs CO Open, 20bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call", exploitAnswer: "Jam", villainType: "Loose Aggro" },
-  { id: 14, title: "Preflop — BB vs BTN Open, 30bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call", exploitAnswer: "Fold", villainType: "Tight Passive" },
-  { id: 15, title: "Preflop — CO 3-bets BTN, 40bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam", villainType: "Recreational", hole: ["Qd","Qs"] },
-  { id: 16, title: "Preflop — BTN 3-bets SB, 35bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Calling Station" },
-  { id: 17, title: "Preflop — SB 3-bets BB, 30bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam", villainType: "Maniac" },
-  { id: 18, title: "Preflop — UTG vs BTN 3-bet, 50bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call", exploitAnswer: "Fold", villainType: "Nit", hole: ["As","Kh"] },
-  { id: 19, title: "Preflop — HJ vs SB 3-bet, 45bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call", exploitAnswer: "Jam", villainType: "Loose Aggro" },
-  { id: 20, title: "Preflop — CO vs BB 3-bet, 28bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam", exploitAnswer: "Fold", villainType: "Tight Passive" },
+  { id: 1,  title: "Preflop — UTG vs Table, 10bb (ICM)", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam",   exploitAnswer: "Fold", villainType: "Nit" },
+  { id: 2,  title: "Preflop — UTG vs BB, 15bb",          options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam",  villainType: "Loose Aggro", hole: ["Ad","Qs"] },
+  { id: 3,  title: "Preflop — UTG vs BTN, 20bb",         options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Tight Passive" },
+  { id: 4,  title: "Preflop — HJ vs BB, 20bb",           options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Calling Station" },
+  { id: 5,  title: "Preflop — HJ vs BTN, 25bb",          options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam",  villainType: "Maniac", hole: ["Kc","Qd"] },
+  { id: 6,  title: "Preflop — LJ vs BTN, 25bb",          options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Nit" },
+  { id: 7,  title: "Preflop — CO vs BB, 30bb",           options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Calling Station" },
+  { id: 8,  title: "Preflop — CO vs BTN, 30bb",          options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Tight Passive" },
+  { id: 9,  title: "Preflop — BTN vs Blinds, 12bb (Antes)", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam", exploitAnswer: "Raise", villainType: "Balanced", hole: ["Ah","5h"] },
+  { id: 10, title: "Preflop — BTN vs SB, 40bb",          options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Recreational" },
+  { id: 11, title: "Preflop — SB vs BB, 15bb",           options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam",   exploitAnswer: "Raise", villainType: "Maniac", hole: ["As","Js"] },
+  { id: 12, title: "Preflop — SB vs BB, 25bb (Bubble)",  options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Fold", villainType: "Nit" },
+  { id: 13, title: "Preflop — BB vs CO Open, 20bb",      options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call",  exploitAnswer: "Jam",  villainType: "Loose Aggro" },
+  { id: 14, title: "Preflop — BB vs BTN Open, 30bb",     options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call",  exploitAnswer: "Fold", villainType: "Tight Passive" },
+  { id: 15, title: "Preflop — CO 3-bets BTN, 40bb",      options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam",  villainType: "Recreational", hole: ["Qd","Qs"] },
+  { id: 16, title: "Preflop — BTN 3-bets SB, 35bb",      options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Calling Station" },
+  { id: 17, title: "Preflop — SB 3-bets BB, 30bb",       options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Jam",  villainType: "Maniac" },
+  { id: 18, title: "Preflop — UTG vs BTN 3-bet, 50bb",   options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call",  exploitAnswer: "Fold", villainType: "Nit", hole: ["As","Kh"] },
+  { id: 19, title: "Preflop — HJ vs SB 3-bet, 45bb",     options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Call",  exploitAnswer: "Jam",  villainType: "Loose Aggro" },
+  { id: 20, title: "Preflop — CO vs BB 3-bet, 28bb",     options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Jam",   exploitAnswer: "Fold", villainType: "Tight Passive" },
 
   // --------- FLOP SRP (21–30) ----------
-  { id: 21, title: "Flop (SRP) — BTN vs BB, 30bb, Board: T♠7♣2♦", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 66%", villainType: "Calling Station", hole: ["Ah","Kd"], board: ["Ts","7c","2d"], rangeHint: { AKs: 0.9, AKo: 0.6, KQs: 0.55, TT: 0.4 } },
-  { id: 22, title: "Flop (SRP) — CO vs BB, 25bb, Board: A♦6♦2♣", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 66%", villainType: "Tight Passive", board: ["Ad","6d","2c"], rangeHint: { AQs: 0.9, ATs: 0.6, A6s: 0.4, 66: 0.5 } },
-  { id: 23, title: "Flop (SRP) — HJ vs BB, 35bb, Board: K♣9♠3♠", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Check", exploitAnswer: "Bet 66%", villainType: "Loose Aggro", board: ["Kc","9s","3s"], rangeHint: { KQs: 0.7, KJs: 0.6, QTs: 0.4, 99: 0.5 } },
+  { id: 21, title: "Flop (SRP) — BTN vs BB, 30bb, Board: T♠7♣2♦", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 66%", villainType: "Calling Station", hole: ["Ah","Kd"], board: ["Ts","7c","2d"], rangeHint: { "AKs": 0.9, "AKo": 0.6, "KQs": 0.55, "TT": 0.4 } },
+  { id: 22, title: "Flop (SRP) — CO vs BB, 25bb, Board: A♦6♦2♣", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 66%", villainType: "Tight Passive", board: ["Ad","6d","2c"], rangeHint: { "AQs": 0.9, "ATs": 0.6, "A6s": 0.4, "66": 0.5 } },
+  { id: 23, title: "Flop (SRP) — HJ vs BB, 35bb, Board: K♣9♠3♠", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Check", exploitAnswer: "Bet 66%", villainType: "Loose Aggro", board: ["Kc","9s","3s"], rangeHint: { "KQs": 0.7, "KJs": 0.6, "QTs": 0.4, "99": 0.5 } },
   { id: 24, title: "Flop (SRP) — BTN vs BB, 20bb, Board: Q♥J♥4♣", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 100%", villainType: "Maniac", board: ["Qh","Jh","4c"] },
   { id: 25, title: "Flop (SRP) — SB vs BB, 25bb, Board: 8♦5♣2♠", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Check", exploitAnswer: "Bet 66%", villainType: "Calling Station", board: ["8d","5c","2s"] },
   { id: 26, title: "Flop (SRP) — UTG vs BB, 40bb, Board: A♠K♦5♣", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 66%", villainType: "Recreational", board: ["As","Kd","5c"] },
@@ -48,7 +48,7 @@ const scenarios: Scenario[] = [
   { id: 30, title: "Flop (SRP) — SB vs BB, 30bb, Board: K♦T♦4♠", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Check", exploitAnswer: "Bet 100%", villainType: "Maniac", board: ["Kd","Td","4s"] },
 
   // --------- FLOP 3BP (31–35) ----------
-  { id: 31, title: "Flop (3BP) — BTN vs SB (BTN 3-bet), 40bb, Board: A♣Q♠5♦", options: ["Check","Bet 25%","Bet 50%","Jam"], gtoAnswer: "Bet 25%", exploitAnswer: "Bet 50%", villainType: "Tight Passive", hole: ["Ac","Kh"], board: ["Ac","Qs","5d"], rangeHint: { AKs: 1, AKo: 0.8, AQs: 0.9 } },
+  { id: 31, title: "Flop (3BP) — BTN vs SB (BTN 3-bet), 40bb, Board: A♣Q♠5♦", options: ["Check","Bet 25%","Bet 50%","Jam"], gtoAnswer: "Bet 25%", exploitAnswer: "Bet 50%", villainType: "Tight Passive", hole: ["Ac","Kh"], board: ["Ac","Qs","5d"], rangeHint: { "AKs": 1, "AKo": 0.8, "AQs": 0.9 } },
   { id: 32, title: "Flop (3BP) — CO vs BB (CO 3-bet), 35bb, Board: K♠J♦2♣", options: ["Check","Bet 25%","Bet 50%","Jam"], gtoAnswer: "Bet 25%", exploitAnswer: "Check", villainType: "Calling Station", board: ["Ks","Jd","2c"] },
   { id: 33, title: "Flop (3BP) — SB vs BTN (BTN 3-bet), 30bb, Board: T♥9♥3♣", options: ["Check","Bet 25%","Bet 50%","Jam"], gtoAnswer: "Check", exploitAnswer: "Bet 50%", villainType: "Loose Aggro", board: ["Th","9h","3c"] },
   { id: 34, title: "Flop (3BP) — UTG vs BTN (BTN 3-bet), 50bb, Board: Q♦Q♣4♦", options: ["Check","Bet 25%","Bet 50%","Jam"], gtoAnswer: "Bet 25%", exploitAnswer: "Bet 50%", villainType: "Balanced", board: ["Qd","Qc","4d"] },
@@ -76,21 +76,21 @@ const scenarios: Scenario[] = [
   { id: 52, title: "River — BTN vs BB, 25bb, A♣J♣5♠ 9♣ | 5♦", options: ["Check","Bet 66%","Jam","Check-raise"], gtoAnswer: "Check", exploitAnswer: "Bet 66%", villainType: "Tight Passive", board: ["Ac","Jc","5s","9c","5d"] },
   { id: 53, title: "River — CO vs BTN, 28bb, K♦T♦4♠ 4♥ | 2♠", options: ["Check","Bet 66%","Overbet"], gtoAnswer: "Bet 66%", exploitAnswer: "Overbet", villainType: "Hero Caller", board: ["Kd","Td","4s","4h","2s"] },
   { id: 54, title: "River — BB vs SB, 30bb, J♠9♦7♣ 2♠ | 5♠", options: ["Check","Jam","Bet Small"], gtoAnswer: "Jam", exploitAnswer: "Bet Small", villainType: "Weak Tight", board: ["Js","9d","7c","2s","5s"] },
-  { id: 55, title: "River — UTG vs CO, 45bb, A♦K♣3♠ 3♦ | Q♠", options: ["Check","Bet 50%","Overbet"], gtoAnswer: "Bet 50%", exploitAnswer: "Overbet", villainType: "Calling Station", hole: ["Ad","Kh"], board: ["Ad","Kc","3s","3d","Qs"], rangeHint: { AKs: 1, AKo: 0.9, AQ: 0.7, KQ: 0.5 } },
+  { id: 55, title: "River — UTG vs CO, 45bb, A♦K♣3♠ 3♦ | Q♠", options: ["Check","Bet 50%","Overbet"], gtoAnswer: "Bet 50%", exploitAnswer: "Overbet", villainType: "Calling Station", hole: ["Ad","Kh"], board: ["Ad","Kc","3s","3d","Qs"], rangeHint: { "AKs": 1, "AKo": 0.9, "AQ": 0.7, "KQ": 0.5 } },
 
   // --------- MIXED/EXTRA (56–60) ----------
   { id: 56, title: "Preflop — CO vs BTN, 18bb (Bubble)", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Fold", exploitAnswer: "Fold", villainType: "Nit" },
   { id: 57, title: "Preflop — BTN vs Blinds, 28bb", options: ["Fold","Call","Raise","Jam"], gtoAnswer: "Raise", exploitAnswer: "Call", villainType: "Recreational" },
-  { id: 58, title: "Flop (SRP) — CO vs BB, 32bb, 8♠6♦2♦", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 66%", villainType: "Calling Station", board: ["8s","6d","2d"], rangeHint: { 88: 1, A8s: 0.8, 76s: 0.4 } },
+  { id: 58, title: "Flop (SRP) — CO vs BB, 32bb, 8♠6♦2♦", options: ["Check","Bet 33%","Bet 66%","Bet 100%"], gtoAnswer: "Bet 33%", exploitAnswer: "Bet 66%", villainType: "Calling Station", board: ["8s","6d","2d"], rangeHint: { "88": 1, "A8s": 0.8, "76s": 0.4 } },
   { id: 59, title: "Turn — CO vs BB, 32bb, 8♠6♦2♦ | Q♦", options: ["Check","Bet 50%","Bet 75%","Jam"], gtoAnswer: "Bet 50%", exploitAnswer: "Jam", villainType: "Loose Aggro", hole: ["As","Qd"], board: ["8s","6d","2d","Qd"] },
-  { id: 60, title: "River — BB vs BTN, 50bb, Q♥J♦7♥ 4♠ | 2♣", options: ["Check","Overbet","Bet Small"], gtoAnswer: "Check", exploitAnswer: "Overbet", villainType: "Hero Caller", hole: ["Qd","Td"], board: ["Qh","Jd","7h","4s","2c"], rangeHint: { QT: 1, QJ: 0.85, KQ: 0.8 } },
+  { id: 60, title: "River — BB vs BTN, 50bb, Q♥J♦7♥ 4♠ | 2♣", options: ["Check","Overbet","Bet Small"], gtoAnswer: "Check", exploitAnswer: "Overbet", villainType: "Hero Caller", hole: ["Qd","Td"], board: ["Qh","Jd","7h","4s","2c"], rangeHint: { "QT": 1, "QJ": 0.85, "KQ": 0.8 } },
 
   // =====================================================================
   // ========== ICM / BUBBLE / FINAL TABLE / BOUNTY PACK (61–120) =========
   // =====================================================================
 
   // --------- ICM Bubble (61–80) ----------
-  { id: 61, title: "ICM Bubble — UTG 12bb, 9 left, 8 paid", options: ["Fold","Min-raise","Jam"], gtoAnswer: "Fold", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["Aq","s".slice(1)], rangeHint: { AQs: 0.6, AJs: 0.4, 77: 0.5 } }, // AQ suited hint only
+  { id: 61, title: "ICM Bubble — UTG 12bb, 9 left, 8 paid", options: ["Fold","Min-raise","Jam"], gtoAnswer: "Fold", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["As","Qs"], rangeHint: { "AQs": 0.6, "AJs": 0.4, "77": 0.5 } },
   { id: 62, title: "ICM Bubble — CO 18bb opens, BTN 15bb behind", options: ["Fold","3-bet small","Jam","Call"], gtoAnswer: "3-bet small", exploitAnswer: "Fold", villainType: "Nit", hole: ["Kc","Qs"] },
   { id: 63, title: "ICM Bubble — BTN 14bb facing HJ open 2.2x", options: ["Fold","Jam","Call"], gtoAnswer: "Jam", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["As","Td"] },
   { id: 64, title: "ICM Bubble — SB 9bb vs BB 20bb (ante)", options: ["Fold","Min-raise","Jam"], gtoAnswer: "Jam", exploitAnswer: "Min-raise", villainType: "Loose Aggro" },
@@ -108,7 +108,7 @@ const scenarios: Scenario[] = [
   { id: 76, title: "ICM Bubble — MP 14bb (antes), first in", options: ["Fold","Jam"], gtoAnswer: "Jam", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["7s","7d"] },
   { id: 77, title: "ICM Bubble — SB 24bb vs BB 26bb, 3-handed table", options: ["Fold","Open 2.5x","Limp"], gtoAnswer: "Open 2.5x", exploitAnswer: "Limp", villainType: "Calling Station" },
   { id: 78, title: "ICM Bubble — BB 40bb vs CO 2.2x, BTN short 6bb", options: ["Fold","Call","3-bet small"], gtoAnswer: "Call", exploitAnswer: "Fold", villainType: "Nit" },
-  { id: 79, title: "ICM Bubble — UTG 20bb shoves, Hero CO 25bb", options: ["Fold","Call"], gtoAnswer: "Fold", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["Aq","d".slice(1)] },
+  { id: 79, title: "ICM Bubble — UTG 20bb shoves, Hero CO 25bb", options: ["Fold","Call"], gtoAnswer: "Fold", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["Ad","Qd"] },
   { id: 80, title: "ICM Bubble — BTN 12bb shove vs blinds", options: ["Fold","Call (SB)","Call (BB)"], gtoAnswer: "Call (BB)", exploitAnswer: "Fold", villainType: "Recreational" },
 
   // --------- Final Table dynamics (81–100) ----------
