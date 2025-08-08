@@ -1,43 +1,69 @@
 [
-  {
-    "id": 1,
-    "title": "UTG vs BB - 10bb Deep",
-    "options": ["Fold", "Call", "Raise", "Jam"],
-    "gtoAnswer": "Raise",
-    "exploitAnswer": "Jam",
-    "villainType": "Loose Aggro"
-  },
-  {
-    "id": 2,
-    "title": "MP vs BB - 20bb Deep",
-    "options": ["Fold", "Call", "Raise", "Jam"],
-    "gtoAnswer": "Raise",
-    "exploitAnswer": "Call",
-    "villainType": "Tight Passive"
-  },
-  {
-    "id": 3,
-    "title": "CO vs BB - 30bb Deep",
-    "options": ["Fold", "Call", "Raise", "Jam"],
-    "gtoAnswer": "Raise",
-    "exploitAnswer": "Jam",
-    "villainType": "Balanced"
-  },
-  {
-    "id": 4,
-    "title": "BTN vs BB - 40bb Deep",
-    "options": ["Fold", "Call", "Raise", "Jam"],
-    "gtoAnswer": "Raise",
-    "exploitAnswer": "Call",
-    "villainType": "Maniac"
-  },
-  {
-    "id": 5,
-    "title": "SB vs BB - 50bb Deep",
-    "options": ["Fold", "Call", "Raise", "Jam"],
-    "gtoAnswer": "Raise",
-    "exploitAnswer": "Call",
-    "villainType": "Calling Station"
-  }
-  // Continue adding scenarios up to id: 50+
+  { "id": 1, "title": "Preflop — UTG vs Table, 10bb (ICM: Early Day 2)", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Jam", "exploitAnswer": "Fold", "villainType": "Nit" },
+  { "id": 2, "title": "Preflop — UTG vs BB, 15bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Jam", "villainType": "Loose Aggro" },
+  { "id": 3, "title": "Preflop — UTG vs BTN, 20bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Fold", "villainType": "Tight Passive" },
+  { "id": 4, "title": "Preflop — HJ vs BB, 20bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Call", "villainType": "Calling Station" },
+  { "id": 5, "title": "Preflop — HJ vs BTN, 25bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Jam", "villainType": "Maniac" },
+  { "id": 6, "title": "Preflop — LJ vs BTN, 25bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Fold", "villainType": "Nit" },
+  { "id": 7, "title": "Preflop — CO vs BB, 30bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Call", "villainType": "Calling Station" },
+  { "id": 8, "title": "Preflop — CO vs BTN, 30bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Fold", "villainType": "Tight Passive" },
+  { "id": 9, "title": "Preflop — BTN vs Blinds, 12bb (BvB+Ante)", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Jam", "exploitAnswer": "Raise", "villainType": "Balanced" },
+  { "id": 10, "title": "Preflop — BTN vs SB, 40bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Call", "villainType": "Recreational" },
+  { "id": 11, "title": "Preflop — SB vs BB, 15bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Jam", "exploitAnswer": "Raise", "villainType": "Maniac" },
+  { "id": 12, "title": "Preflop — SB vs BB, 25bb (ICM: Bubble)", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Fold", "villainType": "Nit" },
+  { "id": 13, "title": "Preflop — BB vs CO Open, 20bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Call", "exploitAnswer": "Jam", "villainType": "Loose Aggro" },
+  { "id": 14, "title": "Preflop — BB vs BTN Open, 30bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Call", "exploitAnswer": "Fold", "villainType": "Tight Passive" },
+  { "id": 15, "title": "Preflop — CO 3-bets BTN, 40bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Jam", "villainType": "Recreational" },
+  { "id": 16, "title": "Preflop — BTN 3-bets SB, 35bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Call", "villainType": "Calling Station" },
+  { "id": 17, "title": "Preflop — SB 3-bets BB, 30bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Jam", "villainType": "Maniac" },
+  { "id": 18, "title": "Preflop — UTG vs 3-bet from BTN, 50bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Call", "exploitAnswer": "Fold", "villainType": "Nit" },
+  { "id": 19, "title": "Preflop — HJ vs 3-bet from SB, 45bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Call", "exploitAnswer": "Jam", "villainType": "Loose Aggro" },
+  { "id": 20, "title": "Preflop — CO vs 3-bet from BB, 28bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Jam", "exploitAnswer": "Fold", "villainType": "Tight Passive" },
+
+  { "id": 21, "title": "Flop (SRP) — BTN vs BB, 30bb, Board: T♠7♣2♦", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 66%", "villainType": "Calling Station" },
+  { "id": 22, "title": "Flop (SRP) — CO vs BB, 25bb, Board: A♦6♦2♣", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 66%", "villainType": "Tight Passive" },
+  { "id": 23, "title": "Flop (SRP) — HJ vs BB, 35bb, Board: K♣9♠3♠", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Check", "exploitAnswer": "Bet 66%", "villainType": "Loose Aggro" },
+  { "id": 24, "title": "Flop (SRP) — BTN vs BB, 20bb, Board: Q♥J♥4♣", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 100%", "villainType": "Maniac" },
+  { "id": 25, "title": "Flop (SRP) — SB vs BB, 25bb, Board: 8♦5♣2♠", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Check", "exploitAnswer": "Bet 66%", "villainType": "Calling Station" },
+  { "id": 26, "title": "Flop (SRP) — UTG vs BB, 40bb, Board: A♠K♦5♣", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 66%", "villainType": "Recreational" },
+  { "id": 27, "title": "Flop (SRP) — CO vs BB, 30bb, Board: 9♣7♣4♦", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 66%", "villainType": "Balanced" },
+  { "id": 28, "title": "Flop (SRP) — BTN vs BB, 18bb, Board: J♠7♦6♠", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Check", "exploitAnswer": "Bet 66%", "villainType": "Loose Aggro" },
+  { "id": 29, "title": "Flop (SRP) — HJ vs BB, 22bb, Board: Q♣8♥3♥", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 66%", "villainType": "Tight Passive" },
+  { "id": 30, "title": "Flop (SRP) — SB vs BB, 30bb, Board: K♦T♦4♠", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Check", "exploitAnswer": "Bet 100%", "villainType": "Maniac" },
+
+  { "id": 31, "title": "Flop (3BP) — BTN vs SB (BTN 3-bet), 40bb, Board: A♣Q♠5♦", "options": ["Check","Bet 25%","Bet 50%","Jam"], "gtoAnswer": "Bet 25%", "exploitAnswer": "Bet 50%", "villainType": "Tight Passive" },
+  { "id": 32, "title": "Flop (3BP) — CO vs BB (CO 3-bet), 35bb, Board: K♠J♦2♣", "options": ["Check","Bet 25%","Bet 50%","Jam"], "gtoAnswer": "Bet 25%", "exploitAnswer": "Check", "villainType": "Calling Station" },
+  { "id": 33, "title": "Flop (3BP) — SB vs BTN (BTN 3-bet), 30bb, Board: T♥9♥3♣", "options": ["Check","Bet 25%","Bet 50%","Jam"], "gtoAnswer": "Check", "exploitAnswer": "Bet 50%", "villainType": "Loose Aggro" },
+  { "id": 34, "title": "Flop (3BP) — UTG vs BTN (BTN 3-bet), 50bb, Board: Q♦Q♣4♦", "options": ["Check","Bet 25%","Bet 50%","Jam"], "gtoAnswer": "Bet 25%", "exploitAnswer": "Bet 50%", "villainType": "Balanced" },
+  { "id": 35, "title": "Flop (3BP) — HJ vs BB (BB 3-bet), 28bb, Board: J♣7♠2♠", "options": ["Check","Bet 25%","Bet 50%","Jam"], "gtoAnswer": "Check", "exploitAnswer": "Bet 50%", "villainType": "Recreational" },
+
+  { "id": 36, "title": "Turn — BTN vs BB, 30bb, Board: T♠7♣2♦ | Turn: A♥", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Bet 50%", "exploitAnswer": "Bet 75%", "villainType": "Calling Station" },
+  { "id": 37, "title": "Turn — CO vs BB, 25bb, Board: 9♣7♣4♦ | Turn: 2♣", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Check", "exploitAnswer": "Bet 75%", "villainType": "Loose Aggro" },
+  { "id": 38, "title": "Turn — HJ vs BB, 35bb, Board: A♦6♦2♣ | Turn: 6♣", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Bet 50%", "exploitAnswer": "Check", "villainType": "Tight Passive" },
+  { "id": 39, "title": "Turn — SB vs BB, 20bb, Board: K♣9♠3♠ | Turn: 9♦", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Check", "exploitAnswer": "Jam", "villainType": "Maniac" },
+  { "id": 40, "title": "Turn — BTN vs BB, 40bb, Board: Q♥J♥4♣ | Turn: 3♥", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Bet 50%", "exploitAnswer": "Bet 75%", "villainType": "Balanced" },
+
+  { "id": 41, "title": "River — BTN vs BB, 30bb, Board: T♠7♣2♦ A♥ | River: 2♠", "options": ["Check","Bet 66%","Jam","Check-raise"], "gtoAnswer": "Bet 66%", "exploitAnswer": "Jam", "villainType": "Calling Station" },
+  { "id": 42, "title": "River — CO vs BB, 25bb, Board: 9♣7♣4♦ 2♣ | River: K♦", "options": ["Check","Bet 66%","Jam","Check-raise"], "gtoAnswer": "Check", "exploitAnswer": "Bet 66%", "villainType": "Tight Passive" },
+  { "id": 43, "title": "River — HJ vs BB, 35bb, Board: A♦6♦2♣ 6♣ | River: 8♥", "options": ["Check","Bet 66%","Jam","Check-raise"], "gtoAnswer": "Bet 66%", "exploitAnswer": "Check", "villainType": "Nit" },
+  { "id": 44, "title": "River — SB vs BB, 20bb, Board: K♣9♠3♠ 9♦ | River: 5♠", "options": ["Check","Bet 66%","Jam","Check-raise"], "gtoAnswer": "Check", "exploitAnswer": "Jam", "villainType": "Maniac" },
+  { "id": 45, "title": "River — BTN vs BB, 40bb, Board: Q♥J♥4♣ 3♥ | River: 3♦", "options": ["Check","Bet 66%","Jam","Check-raise"], "gtoAnswer": "Bet 66%", "exploitAnswer": "Jam", "villainType": "Recreational" },
+
+  { "id": 46, "title": "Preflop — UTG vs Table, 18bb (Antes)", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Fold", "villainType": "Nit" },
+  { "id": 47, "title": "Preflop — LJ vs CO, 22bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Call", "villainType": "Calling Station" },
+  { "id": 48, "title": "Preflop — HJ vs BTN, 35bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Jam", "villainType": "Loose Aggro" },
+  { "id": 49, "title": "Preflop — CO vs BTN, 18bb (Bubble)", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Fold", "exploitAnswer": "Fold", "villainType": "Nit" },
+  { "id": 50, "title": "Preflop — BTN vs Blinds, 28bb", "options": ["Fold","Call","Raise","Jam"], "gtoAnswer": "Raise", "exploitAnswer": "Call", "villainType": "Recreational" },
+
+  { "id": 51, "title": "Flop (SRP) — CO vs BB, 32bb, Board: 8♠6♦2♦", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 66%", "villainType": "Calling Station" },
+  { "id": 52, "title": "Flop (SRP) — BTN vs BB, 25bb, Board: A♣J♣5♠", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Bet 33%", "exploitAnswer": "Bet 66%", "villainType": "Tight Passive" },
+  { "id": 53, "title": "Flop (SRP) — HJ vs BB, 45bb, Board: Q♠T♠9♦", "options": ["Check","Bet 33%","Bet 66%","Bet 100%"], "gtoAnswer": "Check", "exploitAnswer": "Bet 66%", "villainType": "Loose Aggro" },
+  { "id": 54, "title": "Flop (3BP) — BTN vs SB (SB 3-bet), 40bb, Board: K♦K♣4♦", "options": ["Check","Bet 25%","Bet 50%","Jam"], "gtoAnswer": "Bet 25%", "exploitAnswer": "Bet 50%", "villainType": "Balanced" },
+  { "id": 55, "title": "Flop (3BP) — CO vs BB (BB 3-bet), 34bb, Board: A♥7♣3♥", "options": ["Check","Bet 25%","Bet 50%","Jam"], "gtoAnswer": "Bet 25%", "exploitAnswer": "Check", "villainType": "Tight Passive" },
+
+  { "id": 56, "title": "Turn — CO vs BB, 32bb, Board: 8♠6♦2♦ | Turn: Q♦", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Bet 50%", "exploitAnswer": "Jam", "villainType": "Loose Aggro" },
+  { "id": 57, "title": "Turn — BTN vs BB, 25bb, Board: A♣J♣5♠ | Turn: 9♣", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Bet 50%", "exploitAnswer": "Bet 75%", "villainType": "Calling Station" },
+  { "id": 58, "title": "Turn — HJ vs BB, 45bb, Board: Q♠T♠9♦ | Turn: 2♣", "options": ["Check","Bet 50%","Bet 75%","Jam"], "gtoAnswer": "Check", "exploitAnswer": "Bet 75%", "villainType": "Recreational" },
+  { "id": 59, "title": "River — CO vs BB, 32bb, Board: 8♠6♦2♦ Q♦ | River: 2♣", "options": ["Check","Bet 66%","Jam","Check-raise"], "gtoAnswer": "Bet 66%", "exploitAnswer": "Jam", "villainType": "Calling Station" },
+  { "id": 60, "title": "River — BTN vs BB, 25bb, Board: A♣J♣5♠ 9♣ | River: 5♦", "options": ["Check","Bet 66%","Jam","Check-raise"], "gtoAnswer": "Check", "exploitAnswer": "Bet 66%", "villainType": "Tight Passive" }
 ]
