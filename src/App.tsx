@@ -43,18 +43,23 @@ const App: React.FC = () => {
   const progress = ((currentIndex + 1) / scenarios.length) * 100;
 
   return (
+      return (
     <div className="app-wrap">
-      <div className="header-row">
-        <h1>Poker Tournament Training</h1>
-        <div className="score-tracker">
-          Score: {score} / {attempts} ({attempts > 0 ? Math.round((score / attempts) * 100) : 0}%)
+      {/* --- STICKY HEADER --- */}
+      <div className="sticky-header">
+        <div className="header-row">
+          <h1 style={{ margin: 0 }}>Poker Tournament Training</h1>
+          <div className="score-tracker">
+            Score: {score} / {attempts} ({attempts > 0 ? Math.round((score / attempts) * 100) : 0}%)
+          </div>
+        </div>
+        <div className="progress-bar">
+          <div className="progress-fill" style={{ width: `${progress}%` }} />
         </div>
       </div>
 
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${progress}%` }} />
-      </div>
-      <p>Question {currentIndex + 1} / {scenarios.length}</p>
+      {/* keep this line so users still see which question they’re on */}
+      <p style={{ marginTop: 10 }}>Question {currentIndex + 1} / {scenarios.length}</p>
 
       <div className="panel">
         <h2 style={{ marginTop: 0 }}>{scenario.title}</h2>
