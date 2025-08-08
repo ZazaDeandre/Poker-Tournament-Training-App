@@ -1,96 +1,115 @@
-import React, { useEffect, useState } from 'react';
-import scenariosData from './data/scenarios.json';
-import './index.css';
+import React, { useState } from 'react';
+import scenarios from './data/scenarios.json';
+import './App.css';
 
-type Scenario = {
+interface Scenario {
   id: number;
   title: string;
   options: string[];
   gtoAnswer: string;
   exploitAnswer: string;
   villainType: string;
-};
+}
 
-export default function App() {
-  const [scenarios, setScenarios] = useState<Scenario[]>([]);
-  const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState('');
-  const [showResult, setShowResult] = useState(false);
-  const [mode, setMode] = useState<'GTO' | 'Exploit'>('GTO');
+const App: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [attempts, setAttempts] = useState(0);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [showAnswer, setShowAnswer] = useState(false);
 
-  useEffect(() => {
-    setScenarios(scenariosData);
-  }, []);
+  const scenario: Scenario = scenarios[currentIndex];
 
-  const scenario = scenarios[current];
-
-  const handleSubmit = () => {
-    setShowResult(true);
+  const handleOptionClick = (option: string) => {
+    if (!showAnswer) {
+      setSelectedOption(option);
+      setShowAnswer(true);
+      setAttempts(attempts + 1);
+      if (option === scenario.gtoAnswer) {
+        setScore(score + 1);
+      }
+    }
   };
 
   const handleNext = () => {
-    setCurrent((prev) => (prev + 1) % scenarios.length);
-    setSelected('');
-    setShowResult(false);
+    setSelectedOption(null);
+    setShowAnswer(false);
+    if (currentIndex < scenarios.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      alert(`Session complete! You got ${score} / ${attempts} correct.`);
+    }
   };
 
-  if (!scenario) return <p style={{ padding: 24 }}>Loading scenarios...</p>;
+  const progress = ((currentIndex + 1) / scenarios.length) * 100;
 
   return (
-    <div style={{ padding: 24, maxWidth: 750, margin: 'auto' }}>
-      <h1 style={{ textAlign: 'center' }}>GTO Poker Trainer</h1>
-      <div style={{ border: '1px solid #ccc', padding: 20, background: 'white', borderRadius: 8 }}>
-        <h2>Scenario {scenario.id}: {scenario.title}</h2>
-        <p><strong>Villain Type:</strong> {scenario.villainType}</p>
+    <div className="app-container">
+      <h1>Poker Tournament Training</h1>
 
-        <select
-          value={selected}
-          onChange={(e) => setSelected(e.target.value)}
-          style={{ width: '100%', padding: 8, marginTop: 8 }}
-        >
-          <option value="">Choose your action</option>
-          {scenario.options.map((opt) => (
-            <option key={opt} value={opt}>{opt}</option>
-          ))}
-        </select>
+      {/* Progress Bar */}
+      <div className="progress-bar">
+        <div className="progress-fill" style={{ width: `${progress}%` }}></div>
+      </div>
+      <p>
+        Question {currentIndex + 1} / {scenarios.length}
+      </p>
 
-        <div style={{ marginTop: 16 }}>
-          <button
-            onClick={handleSubmit}
-            disabled={!selected}
-            style={{ marginRight: 8, padding: '8px 16px' }}
-          >
-            Submit
-          </button>
-          <button onClick={handleNext} style={{ padding: '8px 16px' }}>
-            Next
-          </button>
-        </div>
+      {/* Villain Type */}
+      <p><strong>Villain Type:</strong> {scenario.villainType}</p>
 
-        {showResult && (
-          <div style={{ marginTop: 16 }}>
-            <p>Your action: <strong>{selected}</strong></p>
-            <p>Correct GTO Action: <strong>{scenario.gtoAnswer}</strong></p>
-            <p>Exploitative Action: <strong>{scenario.exploitAnswer}</strong></p>
-          </div>
-        )}
+      {/* Card Images Placeholder */}
+      <div className="card-images">
+        <div className="card-placeholder">[Hole Cards Image]</div>
+        <div className="card-placeholder">[Board Cards Image]</div>
       </div>
 
-      <div style={{ marginTop: 20, textAlign: 'center' }}>
-        <p>Mode:</p>
-        <button
-          onClick={() => setMode('GTO')}
-          style={{ marginRight: 8, fontWeight: mode === 'GTO' ? 'bold' : 'normal' }}
-        >
-          GTO
-        </button>
-        <button
-          onClick={() => setMode('Exploit')}
-          style={{ fontWeight: mode === 'Exploit' ? 'bold' : 'normal' }}
-        >
-          Exploitative
-        </button>
+      {/* Scenario Title */}
+      <h2>{scenario.title}</h2>
+
+      {/* Options */}
+      <div className="options">
+        {scenario.options.map((option) => (
+          <button
+            key={option}
+            className={`option-btn ${
+              showAnswer
+                ? option === scenario.gtoAnswer
+                  ? 'correct'
+                  : option === selectedOption
+                  ? 'incorrect'
+                  : ''
+                : ''
+            }`}
+            onClick={() => handleOptionClick(option)}
+            disabled={showAnswer}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+
+      {/* Answer Display */}
+      {showAnswer && (
+        <div className="answer-section">
+          <p>
+            <strong>GTO Answer:</strong> {scenario.gtoAnswer}
+          </p>
+          <p>
+            <strong>Exploit Answer:</strong> {scenario.exploitAnswer}
+          </p>
+          {/* Range Chart Placeholder */}
+          <div className="range-placeholder">[Range Chart Here]</div>
+          <button onClick={handleNext} className="next-btn">Next</button>
+        </div>
+      )}
+
+      {/* Score */}
+      <div className="score-tracker">
+        Score: {score} / {attempts} ({attempts > 0 ? Math.round((score / attempts) * 100) : 0}%)
       </div>
     </div>
   );
-}
+};
+
+export default App;
