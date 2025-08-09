@@ -1,5 +1,6 @@
 // src/App.tsx
 import React, { useMemo, useState } from "react";
+import PokerTable from "./components/PokerTable";
 import scenariosData, { Scenario } from "./data/scenarios";
 import "./App.css";
 
@@ -88,7 +89,11 @@ export default function App() {
         Question {currentIndex + 1} / {scenariosData.length}
       </p>
       <h2>{scenario.title}</h2>
-      <p>Villain Type: {scenario.villainType}</p>
+<p>Villain Type: {scenario.villainType}</p>
+
+{/* Poker table graphics */}
+<PokerTable hole={scenario.hole} board={scenario.board} />
+
 
       <div className="options-list">
         {scenario.options.map((option) => (
