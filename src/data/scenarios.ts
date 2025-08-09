@@ -90,7 +90,7 @@ const scenarios: Scenario[] = [
   // =====================================================================
 
   // --------- ICM Bubble (61–80) ----------
-  { id: 61, title: "ICM Bubble — UTG 12bb, 9 left, 8 paid", options: ["Fold","Min-raise","Jam"], gtoAnswer: "Fold", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["As","Qs"], rangeHint: { "AQs": 0.6, "AJs": 0.4, "77": 0.5 } },
+  { id: 61, title: "ICM Bubble — UTG 12bb, 9 left, 8 paid", options: ["Fold","Min-raise","Jam"], gtoAnswer: "Fold", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["As","Qs"], rangeHint: { AQs: 0.6, AJs: 0.4, 77: 0.5 } },
   { id: 62, title: "ICM Bubble — CO 18bb opens, BTN 15bb behind", options: ["Fold","3-bet small","Jam","Call"], gtoAnswer: "3-bet small", exploitAnswer: "Fold", villainType: "Nit", hole: ["Kc","Qs"] },
   { id: 63, title: "ICM Bubble — BTN 14bb facing HJ open 2.2x", options: ["Fold","Jam","Call"], gtoAnswer: "Jam", exploitAnswer: "Fold", villainType: "Tight Passive", hole: ["As","Td"] },
   { id: 64, title: "ICM Bubble — SB 9bb vs BB 20bb (ante)", options: ["Fold","Min-raise","Jam"], gtoAnswer: "Jam", exploitAnswer: "Min-raise", villainType: "Loose Aggro" },
